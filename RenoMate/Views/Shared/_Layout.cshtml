@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RenoMate</title>
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RenoMate.styles.css" asp-append-version="true" /> *@
+
+    <link href="~/scss/about.css" rel="stylesheet" />
+    <link href="~/scss/contact.css" rel="stylesheet" />
+    <link href="~/scss/gallery.css" rel="stylesheet" />
+    <link href="~/scss/login&signup.css" rel="stylesheet" />
+    <link href="~/scss/loginandsignup.css" rel="stylesheet" />
+    <link href="~/scss/service.css" rel="stylesheet" />
+    <link href="~/scss/style.css" rel="stylesheet" />
+
+
+</head>
+<body style="overflow-x: hidden;">
+    <header>
+        <div class="home_section" id="home">
+            <div class="container-fluid p-0">
+                <nav class="navbar navbar-expand-lg px-5">
+                    <a class="navbar-brand" asp-action="index" asp-controller="Home">
+                        <img src="~/images/logo.png" alt="logo" class="img-fluid w-50" />
+                    </a>
+                    <button class="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" asp-action="index" asp-controller="Home" >Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" asp-action="index" asp-controller="About">About</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="index" asp-controller="Service"> Services </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="index" asp-controller="Gallery">Gallery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="index" asp-controller="Contact">Contact</a>
+                            </li>
+                        </ul>
+
+                        <a asp-action="Register" asp-controller="User">
+                            <button type="button"
+                                    class="m-0 btn me-2"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#signup">
+                                Sign Up
+                            </button>
+                        </a>
+
+                        <a asp-action="Login" asp-controller="User">
+                            <button type="button"
+                                    class="m-0 btn"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#login">
+                                Log in
+                            </button>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer text-white">
+        <div class="container pt-lg-5 pt-md-3">
+            <div class="footer-grid_section text-center">
+                <div class="footer-title mb-3">
+                    <a class="navbar-brand" href="#">
+                        <img src="~/images/footer-logo.png"
+                             alt="logo"
+                             class="img-fluid w-50" />
+                    </a>
+                </div>
+                <div class="footer-text">
+                    <p class="fs-5">
+                        Vivamus magna justo, lacinia eget consectetur sed, convallis at
+                        tellus. Nulla quis lorem ipnut libero malesuada feugiat. Lorem
+                        ipsum dolor sit amet elit.
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-5 footer-items justify-content-evenly pb-4">
+                <div class="col-lg-6 mb-lg-0 mb-5 column-1 text-md-start text-center">
+                    <h4 class="mb-4 w3f_title text-uppercase">Contact Info</h4>
+                    <div class="footer-style-w3ls mb-3">
+                        <p>
+                            302, 5th Floor, ALHK-2247 Colendar ek, Settlers Lane, New York.
+                        </p>
+                    </div>
+                    <ul class="list-unstyled">
+                        <li class="my-2">
+                            <a href="tel:+7-800-999-800">
+                                <i class="fa-solid fa-phone" style="color: #ffffff"></i>+91
+                                99999 88888
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/cdn-cgi/l/email-protection#cda4a3b9a8bfa4a2bf8da0aca4a1e3aea2a0"
+                               class="mail">
+                                <i class="fa-solid fa-envelope" style="color: #ffffff"></i>hello@RenoMate.com
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-sm-6 footer-col text-md-start text-center">
+                    <h4 class="mb-md-4 mb-3 w3f_title text-uppercase">Company</h4>
+                    <ul class="list-unstyled">
+                        <li class="my-2">
+                            <a href="about.html"> About Us </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#url"> Terms of use </a>
+                        </li>
+                        <li class="my-2">
+                            <a href="#url"> Faq's </a>
+                        </li>
+                        <li class="my-2">
+                            <a href="#url"> Privacy Policy </a>
+                        </li>
+                        <li>
+                            <a href="contact.html"> Get In Touch </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 mt-sm-0 mt-5 footer-col text-md-start text-center">
+                    <h4 class="mb-md-4 mb-3 w3f_title text-uppercase">Resources</h4>
+                    <ul class="list-unstyled">
+                        <li class="my-2">
+                            <a href="#url"> Getting Started </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#url"> Best Collections </a>
+                        </li>
+                        <li class="my-2">
+                            <a href="#url"> All Categories </a>
+                        </li>
+                        <li class="my-2">
+                            <a href="#url"> 24/7 Support </a>
+                        </li>
+                        <li>
+                            <a href="contact.html"> Contact for Help </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- copyright -->
+        <section>
+            <div class="container-fluid footer-copyright text-center">
+                <p class="copy-footer-29 m-0 py-3 fs-6">
+                    © 2024 RenoMate. All rights reserved. Designed by ROSHNI
+                </p>
+            </div>
+        </section>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

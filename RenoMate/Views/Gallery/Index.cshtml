@@ -1,0 +1,1037 @@
+﻿<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous" />
+<!-- font awesome -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: "Poppins", sans-serif;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .scroll-on {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 0.125rem 1.75rem 0 rgba(0, 0, 0, 0.1);
+        transition: all 0.15s ease-in-out 0s;
+        z-index: 999;
+    }
+
+    .home_section .container-fluid {
+        border-bottom: 2px solid #165a4a;
+    }
+
+    .home_section .navbar .nav-item {
+        text-transform: uppercase;
+        padding: 10px;
+        align-items: center;
+    }
+
+        .home_section .navbar .nav-item .nav-link {
+            position: relative;
+        }
+
+            .home_section .navbar .nav-item .nav-link::after {
+                content: "";
+                opacity: 0;
+                transition: all 0.4s;
+                height: 2px;
+                width: 0;
+                background-color: #165a4a;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+
+            .home_section .navbar .nav-item .nav-link:hover::after {
+                opacity: 1;
+                width: 100%;
+            }
+
+            .home_section .navbar .nav-item .nav-link:hover {
+                color: #165a4a;
+            }
+
+    .home_section .navbar .btn {
+        width: -moz-max-content;
+        width: max-content;
+        margin: 20px;
+        border-radius: 5px;
+        border: 2px solid #165a4a;
+        background-color: #165a4a;
+        color: #eaf1f0;
+        text-transform: uppercase;
+    }
+
+        .home_section .navbar .btn:hover {
+            border: 2px solid #165a4a;
+            color: #165a4a;
+            background-color: white;
+        }
+
+    .carousel {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+    }
+
+        .carousel .list .item {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0 0 0 0;
+        }
+
+            .carousel .list .item img {
+                width: 100%;
+                height: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+            }
+
+            .carousel .list .item .content {
+                position: absolute;
+                top: 20%;
+                max-width: 80%;
+                left: 12%;
+                transform: translateX(-10%);
+                box-sizing: border-box;
+                color: #eaf1f0;
+                text-shadow: 0 10px 10px rgba(0, 0, 0, 0.2666666667);
+            }
+
+                .carousel .list .item .content .display-4 {
+                    margin: 15px auto;
+                }
+
+                .carousel .list .item .content .get-estimate-btn {
+                    border: 2px solid #165a4a;
+                    background-color: #165a4a;
+                    color: white;
+                    padding: 10px;
+                    font-weight: 500;
+                    font-size: 18px;
+                    cursor: pointer;
+                    letter-spacing: 1px;
+                    transition: 0.4s;
+                    margin: 15px auto;
+                    border-radius: 5px;
+                    text-transform: uppercase;
+                }
+
+                    .carousel .list .item .content .get-estimate-btn:hover {
+                        background-color: transparent;
+                        -webkit-backdrop-filter: blur(2px);
+                        backdrop-filter: blur(2px);
+                        letter-spacing: 2px;
+                    }
+
+    .thumbnail {
+        display: flex;
+        gap: 20px;
+        position: absolute;
+        bottom: 20px;
+        left: 30%;
+        max-width: -moz-max-content;
+        max-width: max-content;
+        z-index: 100;
+    }
+
+        .thumbnail .item {
+            width: 150px;
+            height: 220px;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+            .thumbnail .item img {
+                width: 100%;
+                height: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+                border-radius: 20px;
+                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+            }
+
+    .nextPrevArrows {
+        position: absolute;
+        top: 80%;
+        right: 60%;
+        z-index: 100;
+        width: 300px;
+        max-width: 30%;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+        .nextPrevArrows button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #165a4a;
+            border: solid #165a4a;
+            color: #fff;
+            font-family: monospace;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+            .nextPrevArrows button:hover {
+                background-color: transparent;
+                border: solid #165a4a;
+            }
+
+    .carousel .list .item:nth-child(1) {
+        z-index: 1;
+    }
+
+        .carousel .list .item:nth-child(1) .content {
+            transform: translateY(50px);
+            filter: blur(20px);
+            opacity: 0;
+            animation: showContent 0.5s 1s linear 1 forwards;
+        }
+
+    @@keyframes showContent {
+        to {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateY(0px);
+        }
+    }
+
+    .carousel .list .item:nth-child(1) .display-4 {
+        animation-delay: 0.8s;
+    }
+
+    .carousel .list .item:nth-child(1) .fs-4 {
+        animation-delay: 1s;
+    }
+
+    .carousel .list .item:nth-child(1),
+    .get-estimate-btn {
+        animation-delay: 1.5s;
+    }
+
+    .carousel.next .list .item:nth-child(1) img {
+        width: 150px;
+        height: 220px;
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        border-radius: 20px;
+        animation: showImage 0.5s linear 1 forwards;
+    }
+
+    @@keyframes showImage {
+        to {
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            left: 0;
+            border-radius: 0;
+        }
+    }
+
+    .carousel.next .thumbnail .item:nth-child(1) {
+        width: 0;
+        overflow: hidden;
+        animation: showThumbnail 0.5s linear forwards;
+    }
+
+    @@keyframes showThumbnail {
+        to {
+            width: 150px;
+        }
+    }
+
+    .carousel.next .thumbnail {
+        transform: translateX(150px);
+        animation: transformThumbnail 0.5s linear 1 forwards;
+    }
+
+    @@keyframes transformThumbnail {
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    .carousel.prev .list .item:nth-child(2) {
+        z-index: 2;
+    }
+
+        .carousel.prev .list .item:nth-child(2) img {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            animation: outImage 0.5s linear 1 forwards;
+        }
+
+    @@keyframes outImage {
+        to {
+            width: 150px;
+            height: 220px;
+            border-radius: 20px;
+            left: 30%;
+            bottom: 20px;
+        }
+    }
+
+    .carousel.prev .thumbnail .item:nth-child(1) {
+        width: 0;
+        overflow: hidden;
+        opacity: 0;
+        animation: showThumbnail 0.5s linear 1 forwards;
+    }
+
+    .carousel.prev .list .item:nth-child(2) .content {
+        animation: contentOut 0.5s 1s linear 1 forwards;
+    }
+
+    @@keyframes contentOut {
+        to {
+            transform: translateY(-150px);
+            filter: blur(20px);
+            opacity: 0;
+        }
+    }
+
+    .carousel.next .nextPrevArrows button,
+    .carousel.prev .nextPrevArrows button {
+        pointer-events: none;
+    }
+
+    .time {
+        width: 0%;
+        height: 5px;
+        background-color: #165a4a;
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        left: 0;
+    }
+
+    .carousel.next .time,
+    .carousel.prev .time {
+        width: 100%;
+        animation: timeRunning 2s linear 1 forwards;
+    }
+
+    @@keyframes timeRunning {
+        to {
+            width: 0;
+        }
+    }
+
+    .process_section {
+        background-image: url("/images/process/process-bg.jpg");
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+        .process_section .container-fluid {
+            background-color: rgba(255, 255, 255, 0.5098039216);
+        }
+
+        .process_section .process-heading {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.6039215686);
+        }
+
+    .about .about-left ol {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 40px;
+        grid-row-gap: 10px;
+        padding-inline-start: 20px;
+    }
+
+        .about .about-left ol li {
+            font-size: 18px;
+            line-height: 28px;
+            position: relative;
+            list-style-type: none;
+        }
+
+            .about .about-left ol li::before {
+                content: "";
+                width: 6px;
+                height: 6px;
+                background-color: #fff;
+                border-radius: 100px;
+                position: absolute;
+                top: 11px;
+                left: -20px;
+                border: 1px solid #165a4a;
+            }
+
+    .about .about-left .btn-style {
+        background-color: #165a4a;
+        border: 2px solid #165a4a;
+        font-size: 18px;
+    }
+
+        .about .about-left .btn-style:hover {
+            background: transparent;
+            border: 2px solid #165a4a;
+            color: #165a4a;
+        }
+
+    .about .images-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-content: baseline;
+        grid-gap: 20px;
+    }
+
+        .about .images-grid img {
+            border-radius: 10px;
+        }
+
+            .about .images-grid img:hover {
+                transition: 0.5s all ease-in-out;
+                transform: translateY(-7px);
+            }
+
+    .homeblock {
+        background-image: url("/images/homeblock-bg.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        min-height: 100%;
+    }
+
+        .homeblock .container-fluid {
+            background-color: rgba(255, 255, 255, 0.5529411765);
+        }
+
+        .homeblock h1 {
+            text-shadow: 0 10px 10px rgba(0, 0, 0, 0.486);
+        }
+
+        .homeblock .btn-style {
+            background-color: #165a4a;
+            border: 2px solid #165a4a;
+            font-size: 18px;
+            color: #eaf1f0;
+        }
+
+            .homeblock .btn-style:hover {
+                background: transparent;
+                border: 2px solid #165a4a;
+                color: #165a4a;
+            }
+
+        .homeblock .contact-btn {
+            background: transparent;
+            border: 2px solid #165a4a;
+            color: #165a4a;
+            font-size: 18px;
+        }
+
+            .homeblock .contact-btn:hover {
+                background-color: #165a4a;
+                color: #eaf1f0;
+            }
+
+    .newsletter .subscribe-wthree .subscribe-wthree-field .form-control {
+        font-size: 16px;
+        width: 50% !important;
+    }
+
+        .newsletter .subscribe-wthree .subscribe-wthree-field .form-control:focus {
+            box-shadow: none;
+            border: 2px solid #165a4a;
+        }
+
+    .newsletter .subscribe-wthree .subscribe-wthree-field .btn-style {
+        background-color: #165a4a;
+        border: 2px solid #165a4a;
+        font-size: 18px;
+        color: #eaf1f0;
+    }
+
+        .newsletter .subscribe-wthree .subscribe-wthree-field .btn-style:hover {
+            background: transparent;
+            border: 2px solid #165a4a;
+            color: #165a4a;
+        }
+
+    .footer {
+        background-color: #165a4a;
+    }
+
+        .footer .footer-copyright {
+            border-top: 2px solid #eaf1f0;
+        }
+
+        .footer .column-1 ul li a {
+            color: #eaf1f0;
+        }
+
+        .footer .footer-col ul li a {
+            color: #eaf1f0;
+            position: relative;
+            padding-bottom: 3px;
+        }
+
+            .footer .footer-col ul li a::after {
+                content: "";
+                opacity: 0;
+                transition: all 0.6s;
+                text-underline-offset: 5px;
+                height: 2px;
+                width: 0;
+                background-color: #eaf1f0;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+
+            .footer .footer-col ul li a:hover::after {
+                opacity: 1;
+                width: 100%;
+            }
+
+            .footer .footer-col ul li a:hover {
+                color: #eaf1f0;
+            }
+
+    .testimonial_section {
+        margin-top: 80px;
+    }
+
+        .testimonial_section .testimonial-left {
+            position: relative;
+        }
+
+            .testimonial_section .testimonial-left .testimonial-image {
+                --color: #165a4a;
+                /* the border color */
+                --border: 5px;
+                /* the border thickness*/
+                --offset: 10px;
+                /* control the offset*/
+                --gap: 5px;
+                /* the gap on hover */
+                --_c: var(--color) var(--border), #0000 0 calc(100% - var(--border)), var(--color) 0;
+                --_o: calc(3*var(--offset));
+                padding: calc(var(--gap) + var(--border)) calc(var(--gap) + var(--border) + var(--offset)) calc(var(--gap) + var(--border) + var(--offset)) calc(var(--gap) + var(--border));
+                background: linear-gradient(var(--_c)) var(--_o) var(--_o), linear-gradient(90deg, var(--_c)) var(--_o) var(--_o);
+                background-size: calc(100% - var(--_o)) calc(100% - var(--_o));
+                background-repeat: no-repeat;
+                filter: grayscale(0.4);
+                transition: 0.5s;
+                cursor: pointer;
+            }
+
+                .testimonial_section .testimonial-left .testimonial-image:hover {
+                    background-position: 0px 0px;
+                    background-size: calc(100% - var(--offset)) calc(100% - var(--offset));
+                    filter: grayscale(0);
+                }
+
+        .testimonial_section .carousel {
+            height: auto !important;
+        }
+
+            .testimonial_section .carousel .testimonial-card {
+                padding-top: 1rem;
+            }
+
+                .testimonial_section .carousel .testimonial-card .ratings {
+                    margin-bottom: 1rem;
+                }
+
+                .testimonial_section .carousel .testimonial-card .testimonial-card-text {
+                    line-height: 1.8rem;
+                    font-size: 18px;
+                }
+
+                .testimonial_section .carousel .testimonial-card .testimonial-card-name {
+                    font-size: 1rem;
+                    font-weight: 500;
+                }
+
+            .testimonial_section .carousel .testimonial-btn {
+                border: none;
+                font-size: 2rem;
+                background-color: transparent;
+                color: #165a4a;
+            }
+    /*# sourceMappingURL=style.css.map */
+</style>
+
+<style>
+    .breadcrumb-block {
+        background-color: #165a4a;
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+        .breadcrumb-block .container-fluid {
+            background-color: rgba(22, 45, 40, 0.3490196078);
+        }
+
+        .breadcrumb-block .breadcrumb {
+            color: #fff !important;
+        }
+
+            .breadcrumb-block .breadcrumb .breadcrumb-item {
+                font-size: 20px;
+            }
+
+                .breadcrumb-block .breadcrumb .breadcrumb-item::before {
+                    color: #eaf1f0 !important;
+                }
+
+                .breadcrumb-block .breadcrumb .breadcrumb-item a {
+                    color: rgba(255, 255, 255, 0.7176470588);
+                }
+
+                    .breadcrumb-block .breadcrumb .breadcrumb-item a:hover {
+                        text-decoration: underline;
+                    }
+
+            .breadcrumb-block .breadcrumb .active {
+                color: #fff;
+                text-decoration: none;
+            }
+
+        .breadcrumb-block form .search-box {
+            background: #fff;
+            margin-top: 20px;
+            position: relative;
+            align-items: center;
+            border-radius: 30px;
+            width: -moz-max-content;
+            width: max-content;
+        }
+
+            .breadcrumb-block form .search-box input {
+                font-size: 18px;
+                border-radius: 30px;
+                border: none;
+                background: transparent;
+            }
+
+                .breadcrumb-block form .search-box input:focus {
+                    outline: none;
+                    border: none;
+                    box-shadow: none;
+                }
+
+            .breadcrumb-block form .search-box .fa-magnifying-glass {
+                color: rgb(89, 85, 85);
+            }
+
+    @@media screen and (max-width: 769.5px) {
+        .breadcrumb-block {
+            background-size: cover;
+            background-position: center;
+        }
+    }
+
+    .gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .gallery .images {
+            gap: 15px;
+            max-width: 95%;
+            margin-top: 40px;
+            -moz-columns: 5 340px;
+            columns: 5 340px;
+        }
+
+            .gallery .images .card {
+                display: flex;
+                position: relative;
+                list-style: none;
+                margin-bottom: 14px;
+                border-radius: 5px;
+                border: none;
+                overflow: hidden;
+            }
+
+                .gallery .images .card:hover .details {
+                    bottom: 0;
+                }
+
+                .gallery .images .card .details {
+                    position: absolute;
+                    bottom: -100px;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 15px 20px;
+                    transition: bottom 0.1s ease;
+                    background: linear-gradient(to top, rgba(0, 0, 0, 0.87), transparent);
+                }
+
+                    .gallery .images .card .details .photographer {
+                        color: #fff;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                        .gallery .images .card .details .photographer i {
+                            font-size: 1.4rem;
+                            margin-right: 10px;
+                        }
+
+                    .gallery .images .card .details button {
+                        cursor: pointer;
+                        padding: 3px 8px;
+                        font-size: 1.1rem;
+                        background: #fff;
+                        border: none;
+                        outline: none;
+                        border-radius: 5px;
+                    }
+
+        .gallery img {
+            width: 100%;
+        }
+
+    .btn-style {
+        background-color: #165a4a;
+        border: 2px solid #165a4a;
+        font-size: 18px;
+    }
+
+        .btn-style:hover {
+            background: transparent;
+            border: 2px solid #165a4a;
+            color: #165a4a;
+        }
+
+        .btn-style .btn-style.disabled {
+            opacity: 0.6;
+            pointer-events: none;
+            background-color: #165a4a;
+        }
+
+    .lightbox.show {
+        display: block;
+    }
+
+    .lightbox {
+        position: fixed;
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+        display: none;
+        background: rgba(0, 0, 0, 0.65);
+    }
+
+        .lightbox .wrapper {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            transform: translate(-50%, -50%);
+        }
+
+            .lightbox .wrapper header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+                .lightbox .wrapper header .photographer i {
+                    font-size: 1.7rem;
+                }
+
+                .lightbox .wrapper header .photographer span {
+                    font-size: 1.2rem;
+                }
+
+                .lightbox .wrapper header .buttons i {
+                    width: 40px;
+                    height: 40px;
+                    color: #fff;
+                    cursor: pointer;
+                    text-align: center;
+                    line-height: 40px;
+                    background: #165a4a;
+                    font-size: 1.2rem;
+                    display: inline-block;
+                    border-radius: 5px;
+                }
+
+                    .lightbox .wrapper header .buttons i:last-child {
+                        margin-left: 10px;
+                        background: rgba(90, 88, 88, 0.806);
+                    }
+
+            .lightbox .wrapper .preview-img {
+                display: flex;
+                margin-top: 25px;
+                justify-content: center;
+            }
+
+                .lightbox .wrapper .preview-img .img {
+                    max-height: 65vh;
+                    max-width: 90vh;
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .lightbox .wrapper .preview-img img {
+                    max-width: 100%;
+                    height: 100%;
+                    -o-object-fit: contain;
+                    object-fit: contain;
+                }
+    /*# sourceMappingURL=gallery.css.map */
+</style>
+
+
+
+<script>
+    const imagesWrapper = document.querySelector(".images");
+    const loadMoreBtn = document.querySelector(".btn-style");
+    const searchInput = document.querySelector(".search-input");
+    const lightBox = document.querySelector(".lightbox");
+    const closeBtn = document.querySelector(".fa-xmark");
+    const downloadImgBtn = document.querySelector(".fa-download");
+
+    //API key , paginations, searchTerm variables
+    const apiKey = "oowjMidKD1l90Qe2zzzLbCpk9xxuPrhKUGifGIZH6wzHiIDodNS9gWZ2";
+    const perPage = 20;
+    let currentPage = 1;
+    let searchTerm = null;
+
+    const downloadImg = (imgURL) => {
+        //converting received img to blob, creating its download link, &downloading it
+        fetch(imgURL).then(res => res.blob()).then(file => {
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(file);
+            a.download = new Date().getTime();
+            a.click();
+
+        }).catch(() => alert("Failed to download image!"));
+    }
+
+    const showLightbox = (name, img) => {
+        //Showing lightbox and setting img source , name
+        lightBox.querySelector("img").src = img;
+        lightBox.querySelector("span").innerText = name;
+        downloadImgBtn.setAttribute("data-img", img);
+        lightBox.classList.add("show");
+        document.body.style.overflow = "hidden";
+    }
+    const hideLightbox = () => {
+        lightBox.classList.remove("show");
+        document.body.style.overflow = "auto";
+
+    }
+
+
+    const generateHTML = (images) => {
+        //Making li of all fetched images and adding them to the existing image wrapper
+        imagesWrapper.innerHTML += images.map(img =>
+            ` <li class="card" onclick="showLightbox('${img.photographer}' , '${img.src.large2x}')">
+                <img src="${img.src.large2x}" alt="img" />
+                <div class="details">
+                  <div class="photographer">
+                    <i class="fa-solid fa-camera"></i>
+                    <span>${img.photographer}</span>
+                  </div>
+                  <button onclick="downloadImg('${img.src.large2x}');event.stopPropagation();">
+                    <i class="fa-solid fa-download"></i>
+                  </button>
+                </div>
+              </li>`
+        ).join("");
+    }
+
+    const getImages = (apiURL) => {
+        //Fetching images by API with authorization header
+        loadMoreBtn.innerText = "Loading...";
+        loadMoreBtn.classList.add("disabled");
+        fetch(apiURL, {
+            headers: { Authorization: apiKey }
+        }).then(res => res.json()).then(data => {
+            generateHTML(data.photos);
+            loadMoreBtn.innerText = "Load More";
+            loadMoreBtn.classList.remove("disabled");
+        }).catch(() => alert("Failed to load images!"));
+    }
+
+    const loadMoreImages = () => {
+        currentPage++; //Increment currentPage by 1
+        //if searchTerm has some value then call API with searchterm else call default API
+        let apiURL = `https://api.pexels.com/v1/search?query=interior&page=${currentPage}&per_page=${perPage}`;
+        getImages(apiURL);
+    }
+
+    const loadSearchImages = (e) => {
+        if (e.key === "Enter") {
+            currentPage = 1;
+            searchTerm = e.target.value;
+            imagesWrapper.innerHTML = "";
+            getImages(`https://api.pexels.com/v1/search?query=${searchTerm}&page=${currentPage}&per_page=${perPage}`);
+        }
+
+    }
+
+    getImages(`https://api.pexels.com/v1/search?query=interior&page=${currentPage}&per_page=${perPage}`);
+    loadMoreBtn.addEventListener("click", loadMoreImages);
+    searchInput.addEventListener("keyup", loadSearchImages);
+    closeBtn.addEventListener("click", hideLightbox);
+    downloadImgBtn.addEventListener("click", (e) => downloadImg(e.target.dataset.img));
+
+
+</script>
+
+<script>
+
+    let nav = document.querySelector(".navbar");
+    window.onscroll = function () {
+        if (document.documentElement.scrollTop > 10) {
+            nav.classList.add("scroll-on");
+        } else {
+            nav.classList.remove("scroll-on");
+        }
+    };
+</script>
+
+<div>
+
+    <!-- Lightbox section  -->
+    <div class="lightbox">
+        <div class="wrapper">
+            <header>
+                <div class="photographer">
+                    <i class="fa-solid fa-camera"></i>
+                    <span></span>
+                </div>
+                <div class="buttons">
+                    <i class="fa-solid fa-download"></i>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </header>
+            <div class="preview-img">
+                <div class="img"><img src="" alt="preview-img"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Breadcrumb  -->
+    <section class="breadcrumb-block">
+        <div class="container-fluid py-5">
+            <div class="row text-center my-5">
+                <h1 class="display-5 text-white m-0">Photo Gallery</h1>
+                <nav class="d-flex justify-content-center align-items-center"
+                     style="--bs-breadcrumb-divider: '>'"
+                     aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Gallery
+                        </li>
+                    </ol>
+                </nav>
+
+                <form action="" class="d-flex align-items-center justify-content-center">
+                    <div class="search-box align-items-center">
+                        <span><i class="fa-solid fa-magnifying-glass py-1 ps-3"></i></span>
+                        <input type="text"
+                               placeholder="Search Images"
+                               class="search-input p-2" />
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Images  -->
+
+    <section class="gallery">
+        <ul class="images p-0">
+            <!-- <li class="card"> -->
+              <img src="~/images/gallery/img1.jpg" alt="" />
+              <div class="details">
+                <div class="photographer">
+                  <i class="fa-solid fa-camera"></i>
+                  <span>njsdfbhdgbifhidjvf</span>
+                </div>
+                <button><i class="fa-solid fa-download"></i></button>
+              </div>
+            </li>
+            <li class="card"><img src="images/gallery/img2.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img3.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img4.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img5.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img6.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img7.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img8.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img9.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img10.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img11.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img12.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img13.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img14.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img15.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img16.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img17.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img18.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img19.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img20.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img21.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img22.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img1.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img23.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img24.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img25.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img26.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img27.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img28.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img29.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img30.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img31.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img32.jpg" alt="" /></li>
+            <li class="card"><img src="images/gallery/img33.jpg" alt="" /></li>
+        </ul>
+        <button class="btn btn-primary btn-style my-5">Load More</button>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+</div>

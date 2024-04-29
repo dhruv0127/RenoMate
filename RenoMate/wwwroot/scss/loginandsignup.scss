@@ -1,0 +1,106 @@
+$green: #165a4a;
+$green-300: #82b9ae94;
+$green-100: #eaf1f0;
+
+
+.myform {
+    width: 40%;
+    border: grey 2px solid;
+    border-radius: 5px;
+}
+
+@media  screen and (max-width:426px) {
+    .myform{
+        width: 100%;
+        border: none;
+    }
+    
+}
+
+.myform .my-3 {
+    display: flex;
+    justify-content: center;
+}
+
+.myform input {
+    padding: 10px 15px;
+    border-radius: 26px;
+}
+
+.myform input::-moz-placeholder {
+    margin: 5px 0px;
+}
+
+.myform input::placeholder {
+    margin: 5px 0px;
+}
+
+.myform input:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: $green;
+}
+
+.myform .text-center .signup-btn {
+    padding: 7px 15px;
+    color: #ffffff;
+    background-color: $green;
+    border-radius: 30px;
+    font-size: 17px;
+    border: 2px solid $green;
+}
+
+.myform .text-center p a {
+    background-color: transparent;
+    border: none;
+    text-transform: uppercase;
+    color: blue;
+    text-decoration: none;
+}
+
+.myform .text-center p a:hover {
+    padding-bottom: 1px;
+    border-bottom: 2px solid blue;
+}
+
+.myform .continue .social--media a {
+    width: 3rem;
+    height: 3rem;
+    line-height: 2.7rem;
+    margin: 0.2rem;
+    display: inline-block;
+    border: 0.125rem solid $green;
+    color: $green;
+    font-size: 1.2rem;
+    text-align: center;
+    border-radius: 100%;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.myform .continue .social--media a:hover {
+    border-color: $green;
+    color: $green;
+    box-shadow: 0 0.0625rem 0.9375rem 0 rgba(0, 0, 0, 0.1);
+    transform: translateY(-0.3rem);
+    transition: all 0.5s ease-in-out;
+}
+
+hr {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    width: max-content;
+    border-radius: 5px;
+    border: 2px solid $green;
+    background-color: $green;
+    color: $green-100;
+    text-transform: uppercase;
+
+    &:hover {
+        border: 2px solid $green;
+        color: $green;
+        background-color: white;
+    }
+}

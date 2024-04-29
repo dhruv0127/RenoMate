@@ -1,0 +1,109 @@
+$green: #165a4a;
+$green-300: #82b9ae94;
+$green-100: #eaf1f0;
+
+.breadcrumb-block {
+    background-image: url('../images/contact-bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    .container-fluid {
+        background-color: #162d2899;
+    }
+
+    .breadcrumb {
+        color: #fff !important;
+
+        .breadcrumb-item {
+            font-size: 20px;
+
+            &::before {
+                color: $green-100 !important;
+            }
+
+            a {
+                color: #ffffffb7;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+        }
+
+        .active {
+            color: #fff;
+            text-decoration: none;
+        }
+
+    }
+
+
+}
+
+@media screen and (max-width:769.5px) {
+    .breadcrumb-block {
+        background-size: cover;
+        background-position: center;
+    }
+
+}
+
+
+
+.contact {
+    .details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+
+        input {
+            width: 100%;
+            color: gray;
+            font-size: 18px;
+            border: 1px solid rgba(0, 0, 0, 0.591);
+            border-radius: 5px;
+            box-shadow: none;
+            padding: 0px 16px;
+            line-height: 52px;
+        }
+
+    }
+
+    textarea {
+        width: 100%;
+        color: gray;
+        font-size: 18px;
+        border: 1px solid rgba(0, 0, 0, 0.591);
+        border-radius: 5px;
+        box-shadow: none;
+        padding: 0px 16px;
+        margin-top: 20px;
+        line-height: 52px
+    }
+
+    .btn-style {
+        background-color: $green;
+        border: 2px solid $green;
+        font-size: 18px;
+
+        &:hover {
+            background: transparent;
+            border: 2px solid $green;
+            color: $green;
+
+        }
+
+
+    }
+}
+
+@media screen and (max-width:768px) {
+    .contact {
+        .details {
+            grid-template-columns: 1fr;
+        }
+    }
+
+}

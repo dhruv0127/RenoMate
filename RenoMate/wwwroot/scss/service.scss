@@ -1,0 +1,139 @@
+$green: #165a4a;
+$green-300: #82b9ae94;
+$green-100: #eaf1f0;
+
+.breadcrumb-block {
+    background-image: url('../images/services/kam-idris-U39FPHKfDu0-unsplash.jpg');
+    background-size: contain;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    .container-fluid {
+        background-color: #162d2899;
+    }
+
+    .breadcrumb {
+        color: #fff !important;
+
+        .breadcrumb-item {
+            font-size: 20px;
+
+            &::before{
+                color: $green-100 !important;
+            }
+
+
+            a {
+                color: #ffffffb7;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+        }
+
+        .active {
+            color: #fff;
+            text-decoration: none;
+        }
+
+    }
+
+
+}
+
+@media screen and (max-width:769.5px) {
+    .breadcrumb-block {
+        background-size: cover;
+        background-position: center;
+    }
+
+}
+
+
+.services-block {
+    .block-image {
+        img{
+            --color: #165a4a;
+            /* the border color */
+            --border: 5px;
+            /* the border thickness*/
+            --offset: 10px;
+            /* control the offset*/
+            --gap: 5px;
+            /* the gap on hover */
+
+            --_c: var(--color) var(--border), #0000 0 calc(100% - var(--border)), var(--color) 0;
+            --_o: calc(3*var(--offset));
+            padding:
+                calc(var(--gap) + var(--border)) calc(var(--gap) + var(--border) + var(--offset)) calc(var(--gap) + var(--border) + var(--offset)) calc(var(--gap) + var(--border));
+            background:
+                linear-gradient(var(--_c)) var(--_o) var(--_o),
+                linear-gradient(90deg, var(--_c)) var(--_o) var(--_o);
+            background-size: calc(100% - var(--_o)) calc(100% - var(--_o));
+            background-repeat: no-repeat;
+            filter: grayscale(.4);
+            transition: .5s;
+            cursor: pointer;
+
+            &:hover {
+                background-position: 0px 0px;
+                background-size: calc(100% - var(--offset)) calc(100% - var(--offset));
+                filter: grayscale(0);
+            }
+        }
+       
+    }
+
+    .block-text {
+
+        .title-small {
+            font-size: 18px;
+            font-weight: 500;
+            text-transform: uppercase;
+            line-height: 2em;
+            letter-spacing: 1px;
+            color: #7e7d7d;
+        }
+
+        .title-big {
+            font-size: 45px;
+            line-height: 50px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 28px;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                list-style-type: none;
+                line-height: 28px;
+                font-weight: 600;
+                margin: 10px auto;
+
+                .fa {
+                    height: max-content;
+                    color: $green;
+                    margin-right: 12px;
+                    padding: 8px;
+                    background: $green-300;
+                    font-size: 10px;
+                    font-weight: 600;
+                    border-radius: 50%;
+                    display: inline-block;
+
+                }
+
+            }
+        }
+
+    }
+}
